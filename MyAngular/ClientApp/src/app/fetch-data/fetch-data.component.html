@@ -1,0 +1,25 @@
+<h1 id="tableLabel">Name Api</h1>
+
+<p>This component demonstrates fetching data from a free Api.</p>
+
+<p *ngIf="!countrys"><em>Waiting for your Input...  Tag A Name to See from Which Country....</em></p>
+
+<form (ngSubmit)="submitFormName(myName.value)">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="myName" #myName required>
+
+  <button type="submit">Submit</button>
+</form>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="countrys">
+  <thead>
+    <tr>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countrys">
+      <td>{{ country.country_id }}</td>
+    </tr>
+  </tbody>
+</table>
